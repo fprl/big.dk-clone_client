@@ -4,7 +4,9 @@ const ProjectsOrderer = ({ setGroupProjectsBy }) => {
   return (
     <Container>
       <Button onClick={() => setGroupProjectsBy('year')}>Chronological</Button>
+      <Button onClick={() => setGroupProjectsBy('programmatic')}>Programmatic</Button>
       <Button onClick={() => setGroupProjectsBy('size')}>Scale</Button>
+      <Button onClick={() => setGroupProjectsBy('status')}>Status</Button>
     </Container>
   )
 }
