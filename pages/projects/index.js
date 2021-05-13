@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 
 import groupBy from '../../components/projects/utilities/groupBy'
-import ProjectsList from '../../components/projects/ProjectsList'
+import Projects from '../../components/projects/Projects'
 import ProjectsOrderer from '../../components/projects/ProjectsOrderer'
 
 const projects = [
@@ -13,7 +13,7 @@ const projects = [
     shortTitle: 'BAT',
     title: 'Faste Batteri',
     year: 2010,
-    size: '124000 m2',
+    size: '124000',
     programmatic: 'Housing',
     location: 'Copenhaguen, DK',
     status: 'Idea',
@@ -23,7 +23,7 @@ const projects = [
     shortTitle: 'TSP',
     title: 'The Spiral',
     year: 2012,
-    size: '264775 m2',
+    size: '264775',
     programmatic: 'Commercial',
     location: 'New York, USA',
     status: 'Under construction',
@@ -33,7 +33,7 @@ const projects = [
     shortTitle: 'BKB',
     title: 'Back to the future',
     year: 2016,
-    size: '161874 m2',
+    size: '161874',
     programmatic: 'Public space',
     location: 'New York, USA',
     status: 'Idea',
@@ -43,7 +43,7 @@ const projects = [
     shortTitle: 'WTF',
     title: 'Washington stadium',
     year: 2018,
-    size: '132665 m2',
+    size: '132665',
     programmatic: 'Body culture',
     location: 'Washington D.C., USA',
     status: 'In progress',
@@ -53,7 +53,7 @@ const projects = [
     shortTitle: 'FCB',
     title: 'Barcelona stadium',
     year: 2018,
-    size: '200000 m2',
+    size: '200000',
     programmatic: 'Body culture',
     location: 'Barcelona, ESP',
     status: 'In progress',
@@ -61,12 +61,11 @@ const projects = [
 ]
 
 const ProjectsPage = ({ projects }) => {
-  const [projectsOrdered, setProjectsOrdered] = useState(projects)
+  const [projectsOrdered, setProjectsOrdered] = useState(null)
   const [groupProjectsBy, setGroupProjectsBy] = useState('year')
 
   useEffect(() => {
     const groupedProjects = groupBy(projects, groupProjectsBy)
-    console.log(groupedProjects)
     setProjectsOrdered(groupedProjects)
   }, [groupProjectsBy])
 
@@ -76,7 +75,7 @@ const ProjectsPage = ({ projects }) => {
         <title>BIG | Bjarke Ingels Group</title>
         <meta name="description" content="BIG projects" />
       </Head>
-      <ProjectsList projects={projectsOrdered} />
+      <Projects projects={projectsOrdered} />
       <ProjectsOrderer setGroupProjectsBy={setGroupProjectsBy} />
     </>
   )
