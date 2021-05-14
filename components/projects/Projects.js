@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { useFlip, FlipProvider } from 'react-easy-flip'
+
 import ProjectItem from './ProjectItem'
 
 const Projects = ({ projects }) => {
@@ -6,20 +8,26 @@ const Projects = ({ projects }) => {
     return null
   }
 
+  const dataFlip = 'flip-root'
+
+  useFlip(dataFlip)
+
   return (
     <>
-      <Section>
-        {Object.keys(projects).map(orderer => (
-          <ProjectsColumn key={orderer}>
-            <ProjectsList>
-              {projects[orderer].map(project => (
-                <ProjectItem project={project} key={project.id} />
-              ))}
-            </ProjectsList>
-            <ProjectsOrderer children={orderer} />
-          </ProjectsColumn>
-        ))}
-      </Section>
+      <FlipProvider>
+        <Section data-flip-root-id={dataFlip}>
+          {Object.keys(projects).map(orderer => (
+            <ProjectsColumn key={orderer}>
+              <ProjectsList>
+                {projects[orderer].map(project => (
+                  <ProjectItem project={project} key={project.id} />
+                ))}
+              </ProjectsList>
+              <ProjectsOrderer children={orderer} />
+            </ProjectsColumn>
+          ))}
+        </Section>
+      </FlipProvider>
     </>
   )
 }
