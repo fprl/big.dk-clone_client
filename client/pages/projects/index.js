@@ -1,6 +1,5 @@
 // domain.com/projects
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
 
 import groupBy from '../../components/projects/utilities/groupBy'
@@ -81,7 +80,7 @@ const ProjectsPage = ({ projects }) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   // fetch data from an API
 
   return {
