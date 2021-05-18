@@ -1,0 +1,42 @@
+// domain.com/projects/projectId
+import Head from 'next/head'
+import { projectsApi } from '../../../lib/projects'
+
+const projectDetails = ({ project }) => {
+  return (
+    <>
+      <Head>
+        <title>{project.title}</title>
+        <meta name="description" content={project.description} />
+      </Head>
+      <h1>{project.title}</h1>
+    </>
+  )
+}
+
+export async function getStaticPaths() {
+  // get ids from database and map projectId for routes
+  const projects = await projectsApi.getAll()
+  const paths = projects.map(project => ({
+    params: { slug: project.slug },
+  }))
+
+  return {
+    paths: paths,
+    fallback: 'blocking',
+  }
+}
+
+export async function getStaticProps({ params }) {
+  // fetch data for a single project
+  const { slug } = params
+  const [project] = await projectsApi.getOne(slug)
+
+  return {
+    props: {
+      project,
+    },
+  }
+}
+
+export default projectDetails

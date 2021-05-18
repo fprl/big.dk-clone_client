@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
+import { projectsApi } from '../../lib/projects'
+
 import groupBy from '../../components/projects/utilities/groupBy'
 import Projects from '../../components/projects/Projects'
 import ProjectsOrderer from '../../components/projects/ProjectsOrderer'
@@ -80,8 +82,9 @@ const ProjectsPage = ({ projects }) => {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   // fetch data from an API
+  const proj = await projectsApi.getAll()
 
   return {
     props: {
