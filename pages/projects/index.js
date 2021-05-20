@@ -1,6 +1,7 @@
 // domain.com/projects
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 
 import { projectsApi } from '../../lib/projects'
 
@@ -70,6 +71,10 @@ const ProjectsPage = ({ projects }) => {
     setProjectsOrdered(groupedProjects)
   }, [groupProjectsBy])
 
+  if (projects.length === 0) {
+    return <h1>No projects to show, please add one.</h1>
+  }
+
   return (
     <>
       <Head>
@@ -84,7 +89,7 @@ const ProjectsPage = ({ projects }) => {
 
 export async function getStaticProps() {
   // fetch data from an API
-  const proj = await projectsApi.getAll()
+  const projects = await projectsApi.getAll()
 
   return {
     props: {
