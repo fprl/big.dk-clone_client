@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { useFlip, FlipProvider } from 'react-easy-flip'
 
+import { camelToTitle } from './utilities/'
+
 import ProjectItem from './ProjectItem'
 
 const Projects = ({ projects }) => {
@@ -9,7 +11,6 @@ const Projects = ({ projects }) => {
   }
 
   const dataFlip = 'flip-root'
-
   useFlip(dataFlip)
 
   return (
@@ -23,7 +24,7 @@ const Projects = ({ projects }) => {
                   <ProjectItem project={project} key={project.id} />
                 ))}
               </ProjectsList>
-              <ProjectsOrderer children={orderer} />
+              <ProjectsOrderer children={camelToTitle(orderer, ' ')} />
             </ProjectsColumn>
           ))}
         </Section>
@@ -58,6 +59,7 @@ const ProjectsColumn = styled.article`
 
 const ProjectsOrderer = styled.h6`
   margin: 1rem 0;
+  text-transform: uppercase;
 `
 
 const ProjectsList = styled.ul`
