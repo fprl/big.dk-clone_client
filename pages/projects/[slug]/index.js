@@ -1,7 +1,7 @@
 // domain.com/projects/projectId
 import Head from 'next/head'
 import Image from 'next/image'
-import { projectsApi } from '../../../lib/projects'
+import { projectsApi } from '../../../lib/api'
 
 const projectDetails = ({ project }) => {
   return (
