@@ -39,8 +39,10 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
 
-  min-height: 75vh;
+  min-height: 100vh;
   max-width: 50%;
+
+  padding: 4rem 0;
 
   margin: 0 auto;
   gap: 1rem;
@@ -50,9 +52,10 @@ const ProjectsColumn = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  /* align-items: center; */
 
   min-width: 2rem;
-  max-width: 4rem;
+  max-width: 5rem;
 
   flex-grow: 0;
 `
