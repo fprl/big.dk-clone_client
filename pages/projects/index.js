@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { projectsApi } from '../../lib/api'
 import { groupByProperty } from '../../lib/utilities/'
 
-import { Projects, ProjectsOrderer } from '../../components/projects'
+import { ProjectsNavbar, Projects, ProjectsOrderer } from '../../components/projects'
 
 const ProjectsPage = ({ projects }) => {
   const [projectsOrdered, setProjectsOrdered] = useState(null)
@@ -26,8 +26,9 @@ const ProjectsPage = ({ projects }) => {
         <title>BIG | Bjarke Ingels Group</title>
         <meta name="description" content="BIG projects" />
       </Head>
+      <ProjectsNavbar />
       <Projects projects={projectsOrdered} />
-      <ProjectsOrderer setGroupProjectsBy={setGroupProjectsBy} />
+      <ProjectsOrderer orderer={groupProjectsBy} setGroupProjectsBy={setGroupProjectsBy} />
     </>
   )
 }
