@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Icon = ({ src, width, height, srcOnHover }) => {
   console.log(src, width, height, srcOnHover)
   return (
-    <StyledIcon
+    <img
       src={src}
       width={width}
       height={height}
