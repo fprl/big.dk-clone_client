@@ -4,9 +4,11 @@ import { Tooltip } from 'react-tippy'
 
 import Icon from './Icon'
 
+const LOCAL_URL = process.env.NEXT_PUBLIC_CMS_LOCALHOST
+
 const ProjectItem = ({ project }) => {
-  const LOCAL_ICON = process.env.NEXT_PUBLIC_CMS_LOCALHOST + project.icon.url
-  const LOCAL_COVER = process.env.NEXT_PUBLIC_CMS_LOCALHOST + project.cover.formats.small.url
+  const localIcon = LOCAL_URL + project.icon.url
+  const localIconPreview = LOCAL_URL + project.iconPreview.url
 
   return (
     <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50}>
@@ -14,10 +16,10 @@ const ProjectItem = ({ project }) => {
         <Link href={`/projects/${project.slug}`}>
           <Animation>
             <Icon
-              src={process.env.NODE_ENV === 'development' ? LOCAL_ICON : project.icon.url}
-              width={project.icon.width / 2.2}
-              height={project.icon.height / 2.2}
-              srcOnHover={process.env.NODE_ENV === 'development' ? LOCAL_COVER : project.cover.formats.small.url}
+              src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
+              srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
+              // width={36}
+              // height={36}
             />
           </Animation>
         </Link>
@@ -35,6 +37,9 @@ const Project = styled.li`
 
 const Animation = styled.div`
   transition: transform .2s;
+
+  width: 36px;
+  height: 36px;
 
   :hover {
     transform: scale(2);
