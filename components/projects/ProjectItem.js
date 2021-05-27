@@ -10,9 +10,17 @@ const ProjectItem = ({ project }) => {
   const localIcon = LOCAL_URL + project.icon.url
   const localIconPreview = LOCAL_URL + project.iconPreview.url
 
+  function handleOnMouseOver(e) {
+    e.currentTarget.style.zIndex = 1
+  }
+  
+  function handleOnMouseOut(e) {
+    e.currentTarget.style.zIndex = 'auto'
+  }
+
   return (
     <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50}>
-      <Project id={project.id} data-flip-id={project.shortTitle}>
+      <Project id={project.id} data-flip-id={project.shortTitle} onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
         <Link href={`/projects/${project.slug}`}>
           <Animation>
             <Icon
@@ -33,6 +41,7 @@ export default ProjectItem
 
 const Project = styled.li`
   cursor: pointer;
+  position: relative;
 `
 
 const Animation = styled.div`
