@@ -26,8 +26,8 @@ const ProjectItem = ({ project }) => {
             <Icon
               src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
               srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
-              // width={36}
-              // height={36}
+              width={36}
+              height={36}
             />
           </Animation>
         </Link>

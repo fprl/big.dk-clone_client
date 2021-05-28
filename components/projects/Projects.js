@@ -5,19 +5,22 @@ import { camelToTitle } from './utilities/'
 
 import ProjectItem from './ProjectItem'
 
-const Projects = ({ projects }) => {
+const Projects = ({ projects, groupedBy }) => {
   if (!projects) {
     return null
   }
+  
+  const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
+  // Object.keys(projects)
 
   return (
     <>
       <FlipProvider>
         <Section data-flip-root-id={dataFlip}>
-          {Object.keys(projects).map(orderer => (
+          {sortedKeys.map(orderer => (
             <ProjectsColumn key={orderer}>
               <ProjectsList>
                 {projects[orderer].map(project => (

@@ -27,7 +27,7 @@ const ProjectsPage = ({ projects }) => {
         <meta name="description" content="BIG projects" />
       </Head>
       <ProjectsNavbar />
-      <Projects projects={projectsOrdered} />
+      <Projects projects={projectsOrdered} groupedBy={groupProjectsBy} />
       <ProjectsOrderer orderer={groupProjectsBy} setGroupProjectsBy={setGroupProjectsBy} />
     </>
   )
