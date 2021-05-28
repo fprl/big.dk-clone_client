@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Icon = ({ src, width, height, srcOnHover }) => {
   return (
-    <Image
+    <Ico
       src={src}
       width={width}
       height={height}
