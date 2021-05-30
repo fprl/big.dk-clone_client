@@ -9,7 +9,7 @@ const Projects = ({ projects, groupedBy }) => {
   if (!projects) {
     return null
   }
-  
+  console.log(groupedBy)
   const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
 
   const dataFlip = 'flip-root'
