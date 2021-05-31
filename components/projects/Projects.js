@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useFlip, FlipProvider } from 'react-easy-flip'
 
-import { camelToTitle } from './utilities/'
+import { camelToTitle, getOrdererWidth } from './utilities/'
 
 import ProjectItem from './ProjectItem'
 
@@ -12,6 +12,7 @@ const Projects = ({ projects, groupedBy }) => {
 
   const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
   // Object.keys(projects)
+  const gap = groupedBy === 'scale' || groupedBy === 'status' ? 'big' : 'small'
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
@@ -19,9 +20,9 @@ const Projects = ({ projects, groupedBy }) => {
   return (
     <>
       <FlipProvider>
-        <Section data-flip-root-id={dataFlip}>
+        <Section data-flip-root-id={dataFlip} gap={gap}>
           {sortedKeys.map(orderer => (
-            <ProjectsColumn key={orderer} projectsLength={projects[orderer].length}>
+            <ProjectsColumn key={orderer} info={getOrdererWidth(projects[orderer].length)}>
               <ProjectsList>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
@@ -44,24 +45,22 @@ const Section = styled.section`
 
   min-height: 100vh;
   max-height: 100vh;
-  max-width: 80%;
 
   padding: 4rem 0;
 
   margin: 0 auto;
-  gap: 1rem;
+  gap: ${p => p.gap === 'small' ? '1rem' : '2rem'};
 `
 
 const ProjectsColumn = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* align-items: center; */
 
   min-width: 2rem;
-  max-width: ${p => p.projectsLength >= 36 ? '12rem' : '6rem'};
+  max-width: ${p => p.info.columns > 1 ? `${p.info.width}px` : '5rem'};
 
-  flex-grow: ${p => p.projectsLength >= 18 ? 1 : 0};
+  flex-grow: ${p => p.info.columns > 1 ? 1 : 0};
 `
 
 const ProjectsOrderer = styled.h6`
@@ -74,6 +73,8 @@ const ProjectsList = styled.ul`
   flex-direction: column-reverse;
   flex-wrap: wrap;
   max-height: 80%;
+
+  gap: 0.5rem;
 
   list-style: none;
   margin: 0;
