@@ -9,19 +9,19 @@ const Projects = ({ projects, groupedBy }) => {
   if (!projects) {
     return null
   }
-  console.log(groupedBy)
+
   const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
+  // Object.keys(projects)
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
-  // Object.keys(projects)
 
   return (
     <>
       <FlipProvider>
         <Section data-flip-root-id={dataFlip}>
           {sortedKeys.map(orderer => (
-            <ProjectsColumn key={orderer}>
+            <ProjectsColumn key={orderer} projectsLength={projects[orderer].length}>
               <ProjectsList>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
@@ -43,7 +43,8 @@ const Section = styled.section`
   justify-content: center;
 
   min-height: 100vh;
-  max-width: 50%;
+  max-height: 100vh;
+  max-width: 80%;
 
   padding: 4rem 0;
 
@@ -58,9 +59,9 @@ const ProjectsColumn = styled.article`
   /* align-items: center; */
 
   min-width: 2rem;
-  max-width: 5rem;
+  max-width: ${p => p.projectsLength >= 36 ? '12rem' : '6rem'};
 
-  flex-grow: 0;
+  flex-grow: ${p => p.projectsLength >= 18 ? 1 : 0};
 `
 
 const ProjectsOrderer = styled.h6`
@@ -69,6 +70,11 @@ const ProjectsOrderer = styled.h6`
 `
 
 const ProjectsList = styled.ul`
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  max-height: 80%;
+
   list-style: none;
   margin: 0;
   padding: 0;
