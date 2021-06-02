@@ -5,6 +5,8 @@ const Info = () => {
     <>
       <p>This project was created by Franco Romano Losada</p>
       <a href="https://github.com/francoromanol">GitHub</a>
+      <a href="https://github.com/francoromanol">GitHub</a>
+      <a href="https://github.com/francoromanol">GitHub</a>
     </>
   )
 }
