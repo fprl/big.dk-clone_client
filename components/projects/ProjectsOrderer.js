@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import { Tooltip } from 'react-tippy'
 
 import { Button } from '../styled/Button'
+import Info from '../info/Info'
 
 const ProjectsOrderer = ({ orderer, setGroupProjectsBy }) => {
   function isActive(type) {
@@ -10,7 +12,9 @@ const ProjectsOrderer = ({ orderer, setGroupProjectsBy }) => {
   return (
     <Container>
       <Divider>
-        <Button>Info</Button>
+        <Tooltip html={<Info />} position="top" size="regular" offset={0} distance={0} theme='light' interactive={true}>
+          <Button>Info</Button>
+        </ Tooltip>
       </Divider>
       <Divider>
         <Button isActive={isActive('year')} onClick={() => setGroupProjectsBy('year')}>Chronological</Button>
