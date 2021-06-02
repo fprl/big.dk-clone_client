@@ -19,15 +19,13 @@ const ProjectItem = ({ project }) => {
   }
 
   return (
-    <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50}>
+    <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50} delay={100}>
       <Project id={project.id} data-flip-id={`PROJECT-${project.shortTitle}`} onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
         <Link href={`/projects/${project.slug}`}>
           <Animation>
             <Icon
               src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
               srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
-              width={36}
-              height={36}
             />
           </Animation>
         </Link>
