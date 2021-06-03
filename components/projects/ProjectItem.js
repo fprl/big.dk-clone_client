@@ -19,8 +19,8 @@ const ProjectItem = ({ project }) => {
   }
 
   return (
-    <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50} delay={100}>
-      <Project id={project.id} data-flip-id={`PROJECT-${project.shortTitle}`} onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
+    <Project id={project.id} data-flip-id={`PROJECT-${project.shortTitle}`} onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
+      <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50} delay={100}>
         <Link href={`/projects/${project.slug}`}>
           <Animation>
             <Icon
@@ -30,8 +30,8 @@ const ProjectItem = ({ project }) => {
           </Animation>
         </Link>
         <Title>{project.shortTitle}</Title>
-      </Project>
-    </ Tooltip>
+      </ Tooltip>
+    </Project>
   )
 }
 
