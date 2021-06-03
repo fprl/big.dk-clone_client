@@ -12,7 +12,7 @@ const ProjectsOrderer = ({ orderer, setGroupProjectsBy }) => {
   return (
     <Container>
       <Divider>
-        <Tooltip html={<Info />} position="top" size="regular" offset={0} distance={0} theme='light' interactive={true}>
+        <Tooltip html={<Info />} position="top" size="regular" theme='light' interactive={true}>
           <Button>Info</Button>
         </ Tooltip>
       </Divider>
