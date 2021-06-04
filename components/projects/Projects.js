@@ -74,7 +74,7 @@ const ProjectsList = styled.ul`
   flex-wrap: wrap;
   max-height: 80%;
 
-  gap: 0.5rem;
+  column-gap: 0.5rem;
 
   list-style: none;
   margin: 0;
