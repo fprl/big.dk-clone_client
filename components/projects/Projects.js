@@ -12,7 +12,7 @@ const Projects = ({ projects, groupedBy }) => {
 
   const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
   // Object.keys(projects)
-  const gap = groupedBy === 'scale' || groupedBy === 'status' ? 'big' : 'small'
+  const gap = groupedBy === 'programmatic' || groupedBy === 'scale' || groupedBy === 'status' ? 'big' : 'small'
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
@@ -22,7 +22,7 @@ const Projects = ({ projects, groupedBy }) => {
       <FlipProvider>
         <Section data-flip-root-id={dataFlip} gap={gap}>
           {sortedKeys.map(orderer => (
-            <ProjectsColumn key={orderer} info={getOrdererWidth(projects[orderer].length)}>
+            <ProjectsColumn key={orderer} info={getOrdererWidth(projects[orderer].length)} items={projects[orderer].length}>
               <ProjectsList>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
@@ -47,18 +47,27 @@ const Section = styled.section`
   max-height: 100vh;
 
   padding: 4rem 0;
-
   margin: 0 auto;
   gap: ${p => p.gap === 'small' ? '1rem' : '2rem'};
+
+  overflow: auto;
 `
 
 const ProjectsColumn = styled.article`
+  --icon-width: 36px;
+  --gap-width: 8px;
+  --items: ${p => p.items};
+  --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
+  --gaps: calc(var(--columns) - 1);
+  --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   min-width: 2rem;
-  max-width: ${p => p.info.columns > 1 ? `${p.info.width}px` : '5rem'};
+  /* max-width: ${p => p.info.columns > 1 ? `${p.info.width}px` : '5rem'}; */
+  max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--width)' : '5rem'};
 
   flex-grow: ${p => p.info.columns > 1 ? 1 : 0};
 `

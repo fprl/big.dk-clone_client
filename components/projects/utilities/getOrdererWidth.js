@@ -2,7 +2,7 @@
 
 function getOrdererWidth(projectsLength) {
   const iconWidth = 36
-  const projectsInColumn = 11
+  const projectsInColumn = 13
 
   const columns = Math.ceil(projectsLength / projectsInColumn)
   const gapWidth = 8 * (columns - 1)
