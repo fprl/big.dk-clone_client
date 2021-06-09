@@ -16,13 +16,14 @@ const Projects = ({ projects, groupedBy }) => {
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
+  // info={getOrdererWidth(projects[orderer].length)}
 
   return (
     <>
       <FlipProvider>
         <Section data-flip-root-id={dataFlip} gap={gap}>
           {sortedKeys.map(orderer => (
-            <ProjectsColumn key={orderer} info={getOrdererWidth(projects[orderer].length)} items={projects[orderer].length}>
+            <ProjectsColumn key={orderer} items={projects[orderer].length}>
               <ProjectsList>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
@@ -61,6 +62,11 @@ const ProjectsColumn = styled.article`
   --gaps: calc(var(--columns) - 1);
   --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
 
+  @media screen and (max-width: 860px) {
+    --icon-width: 26px;
+    --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -69,7 +75,8 @@ const ProjectsColumn = styled.article`
   /* max-width: ${p => p.info.columns > 1 ? `${p.info.width}px` : '5rem'}; */
   max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--width)' : '5rem'};
 
-  flex-grow: ${p => p.info.columns > 1 ? 1 : 0};
+  /* flex-grow: ${p => p.info.columns > 1 ? 1 : 0}; */
+  flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
 `
 
 const ProjectsOrderer = styled.h6`

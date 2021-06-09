@@ -1,26 +1,40 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import styled from 'styled-components'
 
 const Icon = ({ src, srcOnHover }) => {
   return (
     <Container>
-      <Ico src={src} visible />
-      <Ico src={srcOnHover} />
+      <Animation>
+        <Ico src={src} visible />
+        <Ico src={srcOnHover} />
+      </Animation>
     </Container>
   )
 }
 
 export default Icon
 
+
 const Container = styled.div`
-  height: 100%;
-  width: 100%;
+  width: 36px;
+  height: 36px;
 
   :hover img:first-child {
     display: none;
   }
   :hover img:last-child {
     display: block;
+  }
+`
+
+const Animation = styled.div`
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.2s;
+
+  :hover {
+    transform: scale(2);
   }
 `
 

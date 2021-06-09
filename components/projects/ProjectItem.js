@@ -22,12 +22,10 @@ const ProjectItem = ({ project }) => {
     <Project id={project.id} data-flip-id={`PROJECT-${project.shortTitle}`} onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
       <Tooltip title={`${project.shortTitle} - ${project.title}`} position="top" size="small" followCursor="true" offset={90} distance={-50} delay={100}>
         <Link href={`/projects/${project.slug}`}>
-          <Animation>
-            <Icon
-              src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
-              srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
-            />
-          </Animation>
+          <Icon
+            src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
+            srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
+          />
         </Link>
         <Title>{project.shortTitle}</Title>
       </ Tooltip>
@@ -40,17 +38,6 @@ export default ProjectItem
 const Project = styled.li`
   cursor: pointer;
   position: relative;
-`
-
-const Animation = styled.div`
-  transition: transform .2s;
-
-  width: 36px;
-  height: 36px;
-
-  :hover {
-    transform: scale(2);
-  }
 `
 
 const Title = styled.h6`
