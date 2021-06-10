@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useFlip, FlipProvider } from 'react-easy-flip'
 
-import { camelToTitle, getOrdererWidth } from './utilities/'
+import { camelToTitle } from './utilities/'
 
 import ProjectItem from './ProjectItem'
 
@@ -11,12 +11,10 @@ const Projects = ({ projects, groupedBy }) => {
   }
 
   const sortedKeys = groupedBy === 'alphabetical' ? Object.keys(projects).sort() : Object.keys(projects)
-  // Object.keys(projects)
   const gap = groupedBy === 'programmatic' || groupedBy === 'scale' || groupedBy === 'status' ? 'big' : 'small'
 
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
-  // info={getOrdererWidth(projects[orderer].length)}
 
   return (
     <>
@@ -24,7 +22,7 @@ const Projects = ({ projects, groupedBy }) => {
         <Section data-flip-root-id={dataFlip} gap={gap}>
           {sortedKeys.map(orderer => (
             <ProjectsColumn key={orderer} items={projects[orderer].length}>
-              <ProjectsList>
+              <ProjectsList id={groupedBy}>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
                 ))}
