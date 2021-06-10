@@ -5,23 +5,33 @@ const GlobalStyles = createGlobalStyle`
     // mobile
     --icon-width: 36px;
     --col-height: 100%;
+    --section-gap-s: 0.5rem;
+    --section-gap-m: 1rem;
+    --section-gap-l: 2rem;
 
 
     // tablet
     @media (min-width: 768px) {
-      --icon-width: 36px;
+      --icon-size: 30px;
+    }
+
+    // horizontal tablet
+    @media (min-width: 1024px) {
+      --icon-size: 30px;
+      --gap-width: 0.5rem;
+      --col-height: 35rem;
     }
 
     // laptop
-    @media (min-width: 1024px) {
-      --icon-width: 36px;
-      --gap-width: 8px;
+    @media (min-width: 1200px) {
+      --icon-size: 36px;
+      --gap-width: 0.5rem;
       --col-height: 31rem;
     }
 
     // desktop
     @media (min-width: 1600px) {
-      --icon-width: 36px;
+      --icon-size: 36px;
       --col-height: 40rem;
     }
   }
