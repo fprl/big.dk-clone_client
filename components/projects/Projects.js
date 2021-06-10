@@ -55,31 +55,33 @@ const Section = styled.section`
 `
 
 const ProjectsColumn = styled.article`
-  --icon-width: 36px;
-  --gap-width: 8px;
-  --items: ${p => p.items};
-  --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
-  --gaps: calc(var(--columns) - 1);
-  --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
 
-  @media screen and (max-width: 860px) {
-    --icon-width: 26px;
-    --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
+  @media screen 
+    and (min-width: 1024px) {
+      --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
+      --gaps: calc(var(--columns) - 1);
+      --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
+
+      max-width: ${p => Math.ceil(p.items) / 10 > 1 ? 'var(--width)' : '5rem'};
+      flex-grow: ${p => Math.ceil(p.items) / 10 > 1 ? 1 : 0};
+  }
+
+  @media screen and (min-width: 1600px) {
+      --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
+      --gaps: calc(var(--columns) - 1);
+      --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
+      
+      max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--width)' : '5rem'};
+      flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
   }
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  min-width: 2rem;
-  /* max-width: ${p => p.info.columns > 1 ? `${p.info.width}px` : '5rem'}; */
-  max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--width)' : '5rem'};
-
-  /* flex-grow: ${p => p.info.columns > 1 ? 1 : 0}; */
-  flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
 `
 
 const ProjectsOrderer = styled.h6`
+  font-size: 0.70rem;
   margin: 1rem 0;
   text-transform: uppercase;
 `
@@ -88,7 +90,7 @@ const ProjectsList = styled.ul`
   display: flex;
   flex-direction: column-reverse;
   flex-wrap: wrap;
-  max-height: 80%;
+  max-height: var(--col-height);
 
   column-gap: 0.5rem;
 
