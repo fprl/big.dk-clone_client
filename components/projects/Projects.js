@@ -43,6 +43,7 @@ export default Projects
 const Section = styled.section`
   display: flex;
   justify-content: center;
+  overflow: auto;
 
   min-height: 100vh;
   max-height: 100vh;
@@ -51,28 +52,47 @@ const Section = styled.section`
   margin: 0 auto;
   gap: ${p => p.gap === 'small' ? '1rem' : '2rem'};
 
-  overflow: auto;
+
+  @media screen and (min-width: 1024px) {
+    gap: ${p => p.gap === 'small' ? 'var(--section-gap-s)' : 'var(--section-gap-l)'};
+  }
+
+  @media screen and (min-width: 1200px) {
+    gap: ${p => p.gap === 'small' ? 'var(--section-gap-m)' : 'var(--section-gap-l)'};
+  }
 `
 
 const ProjectsColumn = styled.article`
 
-  @media screen 
-    and (min-width: 1024px) {
-      --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
-      --gaps: calc(var(--columns) - 1);
-      --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
 
-      max-width: ${p => Math.ceil(p.items) / 10 > 1 ? 'var(--width)' : '5rem'};
-      flex-grow: ${p => Math.ceil(p.items) / 10 > 1 ? 1 : 0};
+@media screen and (min-width: 1024px) {
+    --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
+    --gaps: calc(var(--columns) - 1);
+
+    --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
+
+    max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--max-width)' : '5rem'};
+    flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
+  }
+
+  @media screen and (min-width: 1200px) {
+    --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
+    --gaps: calc(var(--columns) - 1);
+
+    --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
+
+    max-width: ${p => Math.ceil(p.items) / 10 > 1 ? 'var(--max-width)' : '5rem'};
+    flex-grow: ${p => Math.ceil(p.items) / 10 > 1 ? 1 : 0};
   }
 
   @media screen and (min-width: 1600px) {
-      --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
-      --gaps: calc(var(--columns) - 1);
-      --width: calc(var(--icon-width) * var(--columns) + var(--gap-width) * var(--gaps));
-      
-      max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--width)' : '5rem'};
-      flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
+    --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
+    --gaps: calc(var(--columns) - 1);
+    
+    --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
+    
+    max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--max-width)' : '5rem'};
+    flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
   }
 
   display: flex;
@@ -92,7 +112,7 @@ const ProjectsList = styled.ul`
   flex-wrap: wrap;
   max-height: var(--col-height);
 
-  column-gap: 0.5rem;
+  column-gap: var(--gap-width);
 
   list-style: none;
   margin: 0;

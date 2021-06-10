@@ -16,8 +16,8 @@ export default Icon
 
 
 const Container = styled.div`
-  width: 36px;
-  height: 36px;
+  width: var(--icon-size);
+  height: var(--icon-size);
 
   :hover img:first-child {
     display: none;
