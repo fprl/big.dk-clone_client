@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { useFlip, FlipProvider } from 'react-easy-flip'
 
 import { camelToTitle } from './utilities/'
-
 import ProjectItem from './ProjectItem'
+
 
 const Projects = ({ projects, groupedBy }) => {
   if (!projects) {
@@ -16,13 +16,14 @@ const Projects = ({ projects, groupedBy }) => {
   const dataFlip = 'flip-root'
   useFlip(dataFlip)
 
+
   return (
     <>
       <FlipProvider>
         <Section data-flip-root-id={dataFlip} gap={gap}>
           {sortedKeys.map(orderer => (
             <ProjectsColumn key={orderer} items={projects[orderer].length}>
-              <ProjectsList id={groupedBy}>
+              <ProjectsList>
                 {projects[orderer].map(project => (
                   <ProjectItem project={project} key={project.id} />
                 ))}
@@ -40,7 +41,7 @@ export default Projects
 
 const Section = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   overflow: auto;
 
   min-height: 100vh;
@@ -48,10 +49,13 @@ const Section = styled.section`
 
   padding: 4rem 0;
   margin: 0 auto;
-  gap: ${p => p.gap === 'small' ? '1rem' : '2rem'};
+  gap: ${p => p.gap === 'small' ? 'var(--section-gap-s)' : 'var(--section-gap-m)'};
 
 
   @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: ${p => p.gap === 'small' ? 'var(--section-gap-s)' : 'var(--section-gap-l)'};
   }
 
@@ -61,12 +65,20 @@ const Section = styled.section`
 `
 
 const ProjectsColumn = styled.article`
+  display: flex;
+  flex-direction: column-reverse;
 
+  margin-inline: 1rem;
 
-@media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    margin-inline: 0;
+
     --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
     --gaps: calc(var(--columns) - 1);
-
     --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
 
     max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--max-width)' : '5rem'};
@@ -75,9 +87,6 @@ const ProjectsColumn = styled.article`
 
   @media screen and (min-width: 1200px) {
     --columns: ${p => Math.ceil(p.items / 10)}; // 10 is the number of items in a column
-    --gaps: calc(var(--columns) - 1);
-
-    --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
 
     max-width: ${p => Math.ceil(p.items) / 10 > 1 ? 'var(--max-width)' : '5rem'};
     flex-grow: ${p => Math.ceil(p.items) / 10 > 1 ? 1 : 0};
@@ -85,34 +94,33 @@ const ProjectsColumn = styled.article`
 
   @media screen and (min-width: 1600px) {
     --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
-    --gaps: calc(var(--columns) - 1);
-    
-    --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
     
     max-width: ${p => Math.ceil(p.items) / 13 > 1 ? 'var(--max-width)' : '5rem'};
     flex-grow: ${p => Math.ceil(p.items) / 13 > 1 ? 1 : 0};
   }
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`
-
-const ProjectsOrderer = styled.h6`
-  font-size: 0.70rem;
-  margin: 1rem 0;
-  text-transform: uppercase;
 `
 
 const ProjectsList = styled.ul`
   display: flex;
-  flex-direction: column-reverse;
   flex-wrap: wrap;
-  max-height: var(--col-height);
 
   column-gap: var(--gap-width);
+  
+  @media screen and (min-width: 1024px) {
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
 
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  max-height: var(--col-height);
+  }
+`
+
+const ProjectsOrderer = styled.h6`
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 0.7rem;
+    margin: 1rem 0;
+  }
 `

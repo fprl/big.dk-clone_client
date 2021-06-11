@@ -44,9 +44,13 @@ const Project = styled.li`
 `
 
 const Title = styled.h6`
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin: 0;
   font-weight: 600;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 0.6rem;
+  }
 `
 
 const Divider = styled.div`
