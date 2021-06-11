@@ -3,8 +3,12 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
   html {
     // mobile
-    --icon-width: 36px;
+    --font-size-: 0.7rem;
+
+    --icon-size: 45px;
+    --gap-width: 0.5rem;
     --col-height: 100%;
+  
     --section-gap-s: 0.5rem;
     --section-gap-m: 1rem;
     --section-gap-l: 2rem;
@@ -12,11 +16,13 @@ const GlobalStyles = createGlobalStyle`
 
     // tablet
     @media (min-width: 768px) {
-      --icon-size: 30px;
+      --font-size: 1rem;
+      --icon-size: 60px;
     }
 
     // horizontal tablet
     @media (min-width: 1024px) {
+      --font-size: 0.7rem;
       --icon-size: 30px;
       --gap-width: 0.5rem;
       --col-height: 35rem;
