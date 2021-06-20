@@ -19,11 +19,13 @@ const Container = styled.div`
   width: var(--icon-size);
   height: var(--icon-size);
 
-  :hover img:first-child {
-    display: none;
-  }
-  :hover img:last-child {
-    display: block;
+  @media screen and (min-width: 1024px) {
+    :hover img:first-child {
+      display: none;
+    }
+    :hover img:last-child {
+      display: block;
+    } 
   }
 `
 
@@ -33,8 +35,10 @@ const Animation = styled.div`
 
   transition: transform 0.2s;
 
-  :hover {
-    transform: scale(2);
+  @media screen and (min-width: 1024px) {
+    :hover {
+      transform: scale(2);
+    }
   }
 `
 
