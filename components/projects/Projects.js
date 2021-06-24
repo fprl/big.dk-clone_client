@@ -76,7 +76,7 @@ const ProjectsColumn = styled.article`
     justify-content: flex-end;
 
     margin-inline: 0;
-
+    // check if col should accept a max of 10 items.
     --columns: ${p => Math.ceil(p.items / 13)}; // 13 is the number of items in a column
     --gaps: calc(var(--columns) - 1);
     --max-width: calc(var(--icon-size) * var(--columns) + var(--gap-width) * var(--gaps));
