@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Button = styled.button`
   font-family: "BigPixel";
-  font-weight: bold;
+  font-size: 1rem;
   text-transform: uppercase;
 
   color: ${p => p.isActive ? '#ff0000' :  'initial'};
@@ -15,10 +15,6 @@ export const Button = styled.button`
 
   :hover {
     color: #ff0000
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 1rem;
   }
 
   @media screen and (min-width: 1068px) {
