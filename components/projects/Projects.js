@@ -51,6 +51,8 @@ const Section = styled.section`
   margin: 0 auto;
   gap: ${p => p.gap === 'small' ? 'var(--section-gap-s)' : 'var(--section-gap-m)'};
 
+  font-family: "BigPixel";
+  font-weight: 400;
 
   @media screen and (min-width: 1024px) {
     display: flex;
@@ -115,12 +117,13 @@ const ProjectsList = styled.ul`
 `
 
 const ProjectsOrderer = styled.h6`
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
   text-transform: uppercase;
 
   @media screen and (min-width: 1024px) {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 800;
     margin: 1rem 0;
   }
 `

@@ -39,9 +39,10 @@ const Divider = styled.div`
 `
 
 const Link = styled(Button)`
+  font-family: "BigPixel";
   font-size: 2rem;
 
   @media screen and (min-width: 1024px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 `

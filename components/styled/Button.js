@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  font-size: 0.8rem;
+  font-family: "BigPixel";
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
 
