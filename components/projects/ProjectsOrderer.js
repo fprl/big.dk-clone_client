@@ -33,7 +33,7 @@ const ProjectsOrderer = ({ orderer, setGroupProjectsBy }) => {
 export default ProjectsOrderer
 
 const Container = styled.aside`
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
