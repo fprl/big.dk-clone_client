@@ -16,7 +16,7 @@ const ProjectsOrderer = ({ orderer, setGroupProjectsBy }) => {
           <Button>Info</Button>
         </ Tooltip>
       </Divider>
-      <Divider>
+      <Divider mobileHide={true} >
         <Button isActive={isActive('year')} onClick={() => setGroupProjectsBy('year')}>Chronological</Button>
         <Button isActive={isActive('alphabetical')} onClick={() => setGroupProjectsBy('alphabetical')}>Alphabetical</Button>
         <Button isActive={isActive('programmatic')} onClick={() => setGroupProjectsBy('programmatic')}>Programmatic</Button>
@@ -36,12 +36,23 @@ const Container = styled.aside`
   position: absolute;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   bottom: 0;
   width: 100%;
-
   height: 2.5rem;
+
+  background-color: rgba(255, 255, 255, 0.6);
+
+  @media screen and (min-width: 768px) {
+    padding: 1rem 0;
+  }
 `
 
 const Divider = styled.div`
+  display: ${p => p.mobileHide ? 'none' : ''};
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 `

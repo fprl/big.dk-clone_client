@@ -23,10 +23,15 @@ const Container = styled.nav`
   justify-content: space-between;
   align-items: flex-end;
 
+  background-color: hsla(180, 0%, 100%, 0.6);
+  z-index: 10;
+
   top: 0;
   width: 100%;
 
-  height: 2rem;
+  @media screen and (min-width: 1024px) {
+    height: 2rem;
+  }
 `
 
 const Divider = styled.div`
@@ -34,5 +39,9 @@ const Divider = styled.div`
 `
 
 const Link = styled(Button)`
-  
+  font-size: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 0.8rem;
+  }
 `
