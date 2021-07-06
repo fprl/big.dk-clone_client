@@ -43,6 +43,6 @@ const Link = styled(Button)`
   font-size: 2rem;
 
   @media screen and (min-width: 1024px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 `
