@@ -48,6 +48,7 @@ const GlobalStyles = createGlobalStyle`
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	  font-size: 16px;
 	  font-weight: 400;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, p { max-width: 70ch; }
