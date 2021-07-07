@@ -34,7 +34,8 @@ const FlexContainer = styled.div`
 `
 
 const Text = styled.span`
-  font-size: 1rem;
+  font-family: "BigPixel";
+  font-size: 1.2rem;
 `
 
 const IconsContainer = styled(FlexContainer)`
