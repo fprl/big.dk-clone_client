@@ -41,7 +41,7 @@ const Container = styled.aside`
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-
+  
   background-color: rgba(255, 255, 255, 0.6);
 
   @media screen and (min-width: 768px) {

@@ -1,21 +1,27 @@
 import styled from 'styled-components'
+import { useState } from 'react'
 
 import { Button } from '../styled/Button'
+import SearchBar from '../projects/SearchBar'
+import { ButtonGroup } from '@material-ui/core'
 
-const ProjectsOrderer = () => {
+const ProjectsNavbar = ({ setSearchProjects }) => {
+  const [isUserSearching, setIsUserSearching] = useState(false)
+
   return (
     <Container>
       <Divider>
         <Link href="#" as="a">BIG</Link>
       </Divider>
+      <SearchBar isVisible={isUserSearching} setSearchProjects={setSearchProjects} />
       <Divider>
-        <Button>Search</Button>
+        <Button isActive={isUserSearching} onClick={() => setIsUserSearching(userSearching => !userSearching)}>Search</Button>
       </Divider>
     </Container>
   )
 }
 
-export default ProjectsOrderer
+export default ProjectsNavbar
 
 const Container = styled.nav`
   position: absolute;
@@ -23,15 +29,13 @@ const Container = styled.nav`
   justify-content: space-between;
   align-items: flex-end;
 
-  background-color: hsla(180, 0%, 100%, 0.6);
-  z-index: 10;
+  top: 0rem;
+  padding-top: 0.5rem;
 
-  top: 0;
+  z-index: 10;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
-    height: 2rem;
-  }
+  background-color: hsla(180, 0%, 100%, 0.6);
 `
 
 const Divider = styled.div`

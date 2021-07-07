@@ -10,11 +10,14 @@ import { ProjectsNavbar, Projects, ProjectsOrderer } from '../../components/proj
 const ProjectsPage = ({ projects }) => {
   const [projectsOrdered, setProjectsOrdered] = useState(null)
   const [groupProjectsBy, setGroupProjectsBy] = useState('year')
+  const [searchProjects, setSearchProjects] = useState(null)
 
   useEffect(() => {
-    const groupedProjects = groupByProperty(projects, groupProjectsBy)
+    const userIsSearching = searchProjects ? true : false
+    const projectsToShow = userIsSearching ? projects.filter(project => project.title.toLowerCase().includes(searchProjects.toLowerCase())) : projects
+    const groupedProjects = groupByProperty(projectsToShow, groupProjectsBy)
     setProjectsOrdered(groupedProjects)
-  }, [groupProjectsBy])
+  }, [searchProjects, groupProjectsBy])
 
   if (projects.length === 0) {
     return <h1>No projects to show, please add one.</h1>
@@ -26,7 +29,7 @@ const ProjectsPage = ({ projects }) => {
         <title>BIG | Bjarke Ingels Group</title>
         <meta name="description" content="BIG projects" />
       </Head>
-      <ProjectsNavbar />
+      <ProjectsNavbar setSearchProjects={setSearchProjects} />
       <Projects projects={projectsOrdered} groupedBy={groupProjectsBy} />
       <ProjectsOrderer orderer={groupProjectsBy} setGroupProjectsBy={setGroupProjectsBy} />
     </>
