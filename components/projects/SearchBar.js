@@ -23,10 +23,6 @@ const SearchBar = ({ isVisible, setSearchProjects }) => {
     delay: 200,
   })
 
-  if (!isVisible) {
-    return null 
-  }
-
   return (
     <>
       {transition((style, item) =>
