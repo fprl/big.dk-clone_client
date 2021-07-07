@@ -7,9 +7,15 @@ const SearchBar = ({ isVisible, setSearchProjects }) => {
   console.log(isVisible)
 
   useEffect(() => {
-    const timeOutId = setTimeout(() => setSearchProjects(value), 500)
+    const search = isVisible ? value : ''
+    const timeOutId = setTimeout(() => setSearchProjects(search), 500)
+
+    if (!isVisible) {
+      setValue('')
+    }
+  
     return () => clearTimeout(timeOutId)
-  }, [value])
+  }, [isVisible, value])
 
   const transition = useTransition(isVisible, {
     from: { y: 0, opacity: 0 },
@@ -17,6 +23,10 @@ const SearchBar = ({ isVisible, setSearchProjects }) => {
     leave: { y: 0, opacity: 0 },
     delay: 200,
   })
+
+  if (!isVisible) {
+    return null 
+  }
 
   return (
     <>
