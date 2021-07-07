@@ -44,6 +44,8 @@ const ProjectsPage = ({ projects }) => {
   )
 }
 
+export default ProjectsPage
+
 export async function getStaticProps() {
   // fetch data from an API
   const projects = await projectsApi.getAll()
@@ -52,8 +54,6 @@ export async function getStaticProps() {
     props: {
       projects,
     },
-    revalidate: 1,
+    // revalidate: 1,
   }
 }
-
-export default ProjectsPage
