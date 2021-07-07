@@ -5,12 +5,19 @@ import Head from 'next/head'
 import { projectsApi } from '../../lib/api'
 import { groupByProperty } from '../../lib/utilities/'
 
-import { ProjectsNavbar, Projects, ProjectsOrderer } from '../../components/projects'
+import { Loading, ProjectsNavbar, Projects, ProjectsOrderer } from '../../components/projects'
 
 const ProjectsPage = ({ projects }) => {
+  const [isPageLoading, setIsPageLoading] = useState(true)
   const [projectsOrdered, setProjectsOrdered] = useState(null)
   const [groupProjectsBy, setGroupProjectsBy] = useState('year')
   const [searchProjects, setSearchProjects] = useState(null)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsPageLoading(false)
+    }, 3000)
+  }, [])
 
   useEffect(() => {
     const userIsSearching = searchProjects ? true : false
@@ -25,6 +32,7 @@ const ProjectsPage = ({ projects }) => {
 
   return (
     <>
+      {isPageLoading ? <Loading /> : null}
       <Head>
         <title>BIG | Bjarke Ingels Group</title>
         <meta name="description" content="BIG projects" />

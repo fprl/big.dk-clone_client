@@ -1,4 +1,4 @@
-// domain.com/projects/projectId
+// domain.com/projects/projectSlug
 import Head from 'next/head'
 import Image from 'next/image'
 import { projectsApi } from '../../../lib/api'

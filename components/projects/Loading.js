@@ -1,14 +1,6 @@
-import Head from 'next/head'
-import router from 'next/router'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
-const Home = () => {
-  useEffect(() => {
-    router.push('/projects')
-    // setTimeout(() => router.push('/projects'), 4000)
-  })
-
+const Loading = () => {
   return (
     <Container>
       <ImageBackground>
@@ -18,15 +10,20 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Loading
 
 const Container = styled.div`
+  position: absolute;
+  z-index: 100;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   min-height: 100vh;
   min-width: 100vw;
+
+  background-color: white;
 `
 
 const ImageBackground = styled.div`
@@ -39,11 +36,15 @@ const ImageBackground = styled.div`
 const Image = styled.img`
   width: 80%;
   /* clip-path: inset(0px 100% 0px 0px); */
-  animation: loading 3s 1s backwards;
+  animation: loading 2s 0.5s backwards;
   margin: auto;
 
   @keyframes loading {
-  0% { clip-path: inset(0px 100% 0px 0px); }
-  100% { clip-path: inset(0px 0% 0px 0px); }
-}
+    0% {
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    100% {
+      clip-path: inset(0px 0% 0px 0px);
+    }
+  }
 `

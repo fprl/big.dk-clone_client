@@ -1,5 +1,6 @@
-export { default as Projects } from './Projects'
+export { default as Loading } from './Loading'
 export { default as ProjectsNavbar } from './ProjectsNavbar'
+export { default as SearchBar } from './SearchBar'
+export { default as Projects } from './Projects'
 export { default as projectItem } from './ProjectItem'
 export { default as ProjectsOrderer } from './ProjectsOrderer'
-export { default as SearchBar } from './SearchBar'
