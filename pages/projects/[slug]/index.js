@@ -15,6 +15,8 @@ const projectDetails = ({ project }) => {
   )
 }
 
+export default projectDetails
+
 export async function getStaticPaths() {
   // get ids from database and map projectId for routes
   const projects = await projectsApi.getAll()
@@ -39,5 +41,3 @@ export async function getStaticProps({ params }) {
     },
   }
 }
-
-export default projectDetails
