@@ -4,7 +4,6 @@ import { useTransition, animated } from 'react-spring'
 
 const SearchBar = ({ isVisible, setSearchProjects }) => {
   const [value, setValue] = useState('')
-  console.log(isVisible)
 
   useEffect(() => {
     const search = isVisible ? value : ''

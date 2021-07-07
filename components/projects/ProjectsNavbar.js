@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 import { Button } from '../styled/Button'
 import SearchBar from '../projects/SearchBar'
-import { ButtonGroup } from '@material-ui/core'
 
 const ProjectsNavbar = ({ setSearchProjects }) => {
   const [isUserSearching, setIsUserSearching] = useState(false)
@@ -15,7 +14,7 @@ const ProjectsNavbar = ({ setSearchProjects }) => {
       </Divider>
       <SearchBar isVisible={isUserSearching} setSearchProjects={setSearchProjects} />
       <Divider>
-        <Button isActive={isUserSearching} onClick={() => setIsUserSearching(userSearching => !userSearching)}>Search</Button>
+        <Button isActive={isUserSearching} onClick={() => setIsUserSearching(userSearching => !userSearching)}>{isUserSearching ? 'Searching' : 'Search'}</Button>
       </Divider>
     </Container>
   )
