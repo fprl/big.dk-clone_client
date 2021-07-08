@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import 'react-tippy/dist/tippy.css'
 
 import GlobalStyles from '../styles/GlobalStyles'
@@ -8,10 +7,10 @@ import Fonts from '../styles/Fonts'
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Fonts />
       <Reset />
+      <Fonts />
       <GlobalStyles />
-      <Component {...pageProps} />    
+      <Component {...pageProps} />
     </>
   )
 }
