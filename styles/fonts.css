@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'BigPixel';
+  src: url('/fonts/bigPixel.woff') format('woff');
+  font-weight: 1 999;
+}
+
+/* Klavika */
+@font-face {
+  font-family: 'Klavika';
+  src: url('/fonts/klavika.woff') format('woff');
+  font-weight: 1 999;
+}

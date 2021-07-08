@@ -1,16 +1,16 @@
+import Head from 'next/head'
 import 'react-tippy/dist/tippy.css'
 
 import GlobalStyles from '../styles/GlobalStyles'
 import Reset from '../styles/Reset'
-import Fonts from '../styles/Fonts'
+import '../styles/fonts.css' // separate because of styled-components bug
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Reset />
-      <Fonts />
       <GlobalStyles />
-      <Component {...pageProps} />
+      <Component {...pageProps} />    
     </>
   )
 }
