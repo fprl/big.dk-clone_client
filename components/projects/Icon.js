@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-const Icon = ({ src, srcOnHover }) => {
+const Icon = ({ src, srcOnHover, alt }) => {
   return (
     <Container>
       <Animation>
-        <Ico src={src} visible />
+        <Ico src={src} alt={alt} visible />
         <Ico src={srcOnHover} />
       </Animation>
     </Container>

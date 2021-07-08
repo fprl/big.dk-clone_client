@@ -26,6 +26,7 @@ const ProjectItem = ({ project }) => {
             <Icon
               src={process.env.NODE_ENV === 'development' ? localIcon : project.icon.url}
               srcOnHover={process.env.NODE_ENV === 'development' ? localIconPreview : project.iconPreview.url}
+              alt={`${project.shortTitle} - ${project.title}`}
             />
           </Divider>
         </Link>

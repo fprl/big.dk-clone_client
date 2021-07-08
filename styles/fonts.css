@@ -2,6 +2,7 @@
   font-family: 'BigPixel';
   src: url('/fonts/bigPixel.woff') format('woff');
   font-weight: 1 999;
+  font-display: swap;
 }
 
 /* Klavika */
@@ -9,4 +10,5 @@
   font-family: 'Klavika';
   src: url('/fonts/klavika.woff') format('woff');
   font-weight: 1 999;
+  font-display: swap;
 }

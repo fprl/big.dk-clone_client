@@ -5,7 +5,7 @@ export const Button = styled.button`
   font-size: 1rem;
   text-transform: uppercase;
 
-  color: ${p => p.isActive ? '#ff0000' :  'initial'};
+  color: ${p => p.isActive ? '#ec0000' :  'initial'};
   background-color: initial;
   padding: 0 1rem;
   border: 0px solid white;
@@ -13,7 +13,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    color: #ff0000
+    color: #ec0000;
   }
 
   @media screen and (min-width: 1068px) {
