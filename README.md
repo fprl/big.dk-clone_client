@@ -1,32 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- REPO TITLE -->
+<br />
+<p align="center">
+  <img src="readme/logo.svg" alt="Logo" height="80">
 
-## big.dk clone
+  <h4 align="center">Bjarke Ingels Group | Clone</h4>
+  <p align="center">
+    <a href="https://big-dk.vercel.app/">Live Demo</a>
+    ·
+    <a href="https://big.dk/">Original</a>
+  </p>
+</p>
 
-Made with next.js
+<br />
+<br />
 
-## Getting Started
 
-First, run the development server:
+![product-screenshot]
+<!-- ABOUT THE PROJECT -->
+## About the clone
+The aim of this clone is to improve the [BIG (Bjarke Ingels Group)](https://big.dk/) website which is made with wordpress, a custom plugin and the Canvas API and which lacks of responsiveness, accesibility performance and SEO based on the lighthouse report.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This clone also help me to get a workaround to the `flex-direction: column;` css problem.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Improvements
+ <div align="center">
+  <img src="readme/SEO.jpg" height="120" alt="Clone lighthouse report">
+ </div>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+ * Improved lighthouse report
+ * Semantic elements.
+ * SEO improved.
+ * Responsive design that works with mobile, tablet and desktop.
+ * Search bar for projects.
+ * Each project has it's own page (SEO improvement) with it's own slug based on the project name provided in the headless CMS.
+ * Color contrasts corrected.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Made with
+* [Next.js](https://nextjs.org/)
+* [styled-components](https://styled-components.com/)
+* [Axios](https://axios-http.com/)
+* [react-easy-flip](https://github.com/jlkiri/react-easy-flip)
+* [react-spring](https://react-spring.io/)
 
-## Learn More
+* [Strapi](https://strapi.io/) as a Headless CMS => [repository](https://github.com/francoromanol/big.dk-clone_server)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation and start
+To get a local copy up and running follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone this repo and headless cms repo
+   ```sh
+   $ git clone https://github.com/francoromanol/big.dk-clone_client.git 
+   $ git clone https://github.com/francoromanol/big.dk-clone_server.git
+   ```
+2. Install packages on client and headless cms
+   ```sh
+   $ yarn install
+   ```
+3. In `.env.local` file (client)
+    ```sh
+    CMS_HOST= [CMS HOST]
+    CMS_LOCALHOST= 'http://localhost:1337'
+    NEXT_PUBLIC_CMS_LOCALHOST=$CMS_LOCALHOST
+    ```
+4. In `.env` (headless cms)
+    ```sh
+    HOST=0.0.0.0
+    PORT=1337
+    CLOUDINARY_NAME = [CLOUDINARY NAME]
+    CLOUDINARY_KEY = [CLOUDINARY KEY]
+    CLOUDINARY_SECRET = [CLOUDINARY SECRET]
+    ```
+5. Run client and headless cms
+    ```sh
+    $ yarn dev # client
+    $ yarn develop # headless cms
+    ```
+
+Once started the client app should be available via [localhost:3000](http://localhost:3000) and the headless cms via [localhost:1337](http://localhost:1337)
+
+
+### Have a great day!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: readme/recording.gif
