@@ -18,7 +18,7 @@
 ![product-screenshot]
 <!-- ABOUT THE PROJECT -->
 ## About the clone
-The aim of this clone is to improve the [BIG (Bjarke Ingels Group)](https://big.dk/) website which is made with wordpress, a custom plugin and the Canvas API and which lacks of responsiveness, accesibility performance and SEO based on the lighthouse report.
+The aim of this clone is to improve the [BIG (Bjarke Ingels Group)](https://big.dk/) website which is made with wordpress, a custom plugin and the Canvas API and which lacks of responsiveness, accesibility, performance and SEO based on the lighthouse report.
 
 This clone also helped me to get a workaround to the `flex-direction: column;` [css problem](https://stackoverflow.com/questions/33891709/when-flexbox-items-wrap-in-column-mode-container-does-not-grow-its-width).
 
