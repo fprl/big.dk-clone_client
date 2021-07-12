@@ -22,8 +22,7 @@ The aim of this clone is to improve the [BIG (Bjarke Ingels Group)](https://big.
 
 This clone also helped me to get a workaround to the `flex-direction: column;` [css problem](https://stackoverflow.com/questions/33891709/when-flexbox-items-wrap-in-column-mode-container-does-not-grow-its-width).
 
-About the Headless CMS: [repository](https://github.com/francoromanol/big.dk-clone_server)
-This clone — like the original — has its own CMS created with [Strapi](https://strapi.io/) that allows the user to create projects in an easy and fast way, which automatically generates the necessary properties based on the project information (alphabetical, slug, scale) to use them on the client-side.
+About the Headless CMS ([repository](https://github.com/francoromanol/big.dk-clone_server)): This clone — like the original — has its own CMS created with [Strapi](https://strapi.io/) that allows the user to create projects in an easy and fast way, which automatically generates the necessary properties based on the project information (alphabetical, slug, scale) to use them on the client-side.
 
 ### Improvements
  <div align="center">
